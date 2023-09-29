@@ -1,0 +1,206 @@
+# do PipelineProcessor_run_msim_rtl_systemverilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Modifying /opt/quartus/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini
+# 
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/writeback.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/writeback.sv 
+# -- Compiling module writeback
+# 
+# Top level modules:
+# 	writeback
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/sl2.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/sl2.sv 
+# -- Compiling module sl2
+# 
+# Top level modules:
+# 	sl2
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/signext.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/signext.sv 
+# -- Compiling module signext
+# 
+# Top level modules:
+# 	signext
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/regfile.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/regfile.sv 
+# -- Compiling module regfile
+# 
+# Top level modules:
+# 	regfile
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/processor_arm.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/processor_arm.sv 
+# -- Compiling module processor_arm
+# 
+# Top level modules:
+# 	processor_arm
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/mux2.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/mux2.sv 
+# -- Compiling module mux2
+# 
+# Top level modules:
+# 	mux2
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/memory.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/memory.sv 
+# -- Compiling module memory
+# 
+# Top level modules:
+# 	memory
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/maindec.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/maindec.sv 
+# -- Compiling module maindec
+# 
+# Top level modules:
+# 	maindec
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/imem.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/imem.sv 
+# -- Compiling module imem
+# 
+# Top level modules:
+# 	imem
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/flopr.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/flopr.sv 
+# -- Compiling module flopr
+# 
+# Top level modules:
+# 	flopr
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/fetch.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/fetch.sv 
+# -- Compiling module fetch
+# 
+# Top level modules:
+# 	fetch
+# End time: 11:24:38 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/execute.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:38 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/execute.sv 
+# -- Compiling module execute
+# 
+# Top level modules:
+# 	execute
+# End time: 11:24:39 on Sep 29,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/decode.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:39 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/decode.sv 
+# -- Compiling module decode
+# 
+# Top level modules:
+# 	decode
+# End time: 11:24:39 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:39 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv 
+# -- Compiling module datapath
+# 
+# Top level modules:
+# 	datapath
+# End time: 11:24:39 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/controller.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:39 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/controller.sv 
+# -- Compiling module controller
+# 
+# Top level modules:
+# 	controller
+# End time: 11:24:39 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/aludec.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:39 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/aludec.sv 
+# -- Compiling module aludec
+# 
+# Top level modules:
+# 	aludec
+# End time: 11:24:39 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/alu.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:39 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/alu.sv 
+# -- Compiling module alu
+# 
+# Top level modules:
+# 	alu
+# End time: 11:24:39 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor {/home-local/visitante/ArqComputadoras/PipelineProcessor/adder.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:39 on Sep 29,2023
+# vlog -reportprogress 300 -sv -work work "+incdir+/home-local/visitante/ArqComputadoras/PipelineProcessor" /home-local/visitante/ArqComputadoras/PipelineProcessor/adder.sv 
+# -- Compiling module adder
+# 
+# Top level modules:
+# 	adder
+# End time: 11:24:39 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home-local/visitante/ArqComputadoras/PipelineProcessor/dmem.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:24:39 on Sep 29,2023
+# vcom -reportprogress 300 -93 -work work /home-local/visitante/ArqComputadoras/PipelineProcessor/dmem.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity dmem
+# -- Compiling architecture behave of dmem
+# ** Warning: /home-local/visitante/ArqComputadoras/PipelineProcessor/dmem.vhd(30): (vcom-1194) FILE declaration was written using VHDL 1987 syntax.
+# End time: 11:24:39 on Sep 29,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# 
