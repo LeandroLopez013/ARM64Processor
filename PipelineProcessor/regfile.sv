@@ -13,7 +13,9 @@ module regfile(input logic clk, we3,
 		end
 	always_comb
 		begin
-			rd1 = regs[ra1];
-			rd2 = regs[ra2];
+			if ((we3) & (wa3 !== 5'b11111) & (wa3 === ra1)) rd1 = wd3;
+			else rd1 = regs[ra1];
+			if ((we3) & (wa3 !== 5'b11111) & (wa3 === ra2)) rd2 = wd3;
+			else rd2 = regs[ra2];
 		end
 endmodule
