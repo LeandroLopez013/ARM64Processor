@@ -1,10 +1,15 @@
+# quartus files
 db/
 incremental_db/
 output_files
 simulation
 *.bak
 *.qtf
-*.rpt
 *.log
 *.tmp
 *.pdf
+
+# armv8 files
+main.elf
+main.list
+main.o
