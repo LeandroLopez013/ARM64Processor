@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PipelineProcessor
-Fri Sep 29 11:40:07 2023
+Sun Oct  1 18:58:25 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -17,11 +17,11 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   9. Registers Removed During Synthesis
  10. Removed Registers Triggering Further Register Optimizations
  11. General Register Statistics
- 12. Registers Packed Into Inferred Megafunctions
+ 12. Inverted Register Statistics
  13. Registers Added for RAM Pass-Through Logic
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0|altsyncram_2km1:auto_generated
- 16. Source assignments for datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_1|altsyncram_2km1:auto_generated
+ 14. Registers Packed Into Inferred Megafunctions
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0|altsyncram_a4i1:auto_generated
  17. Source assignments for dmem:dataMem|altsyncram:mem_rtl_0|altsyncram_4tg1:auto_generated
  18. Parameter Settings for User Entity Instance: Top-level Entity: |processor_arm
  19. Parameter Settings for User Entity Instance: datapath:dp
@@ -43,14 +43,13 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  35. Parameter Settings for User Entity Instance: imem:instrMem
  36. Parameter Settings for User Entity Instance: flopr:IF_ID_TOP
  37. Parameter Settings for Inferred Entity Instance: datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0
- 38. Parameter Settings for Inferred Entity Instance: datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_1
- 39. Parameter Settings for Inferred Entity Instance: dmem:dataMem|altsyncram:mem_rtl_0
- 40. altsyncram Parameter Settings by Entity Instance
- 41. Port Connectivity Checks: "datapath:dp|fetch:FETCH|adder:add"
- 42. Port Connectivity Checks: "datapath:dp"
- 43. Post-Synthesis Netlist Statistics for Top Partition
- 44. Elapsed Time Per Partition
- 45. Analysis & Synthesis Messages
+ 38. Parameter Settings for Inferred Entity Instance: dmem:dataMem|altsyncram:mem_rtl_0
+ 39. altsyncram Parameter Settings by Entity Instance
+ 40. Port Connectivity Checks: "datapath:dp|fetch:FETCH|adder:add"
+ 41. Port Connectivity Checks: "datapath:dp"
+ 42. Post-Synthesis Netlist Statistics for Top Partition
+ 43. Elapsed Time Per Partition
+ 44. Analysis & Synthesis Messages
 
 
 
@@ -77,18 +76,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Sep 29 11:40:07 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sun Oct  1 18:58:25 2023       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; PipelineProcessor                           ;
 ; Top-level Entity Name              ; processor_arm                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,148                                       ;
-;     Total combinational functions  ; 907                                         ;
-;     Dedicated logic registers      ; 496                                         ;
-; Total registers                    ; 496                                         ;
+; Total logic elements               ; 4,855                                       ;
+;     Total combinational functions  ; 2,440                                       ;
+;     Dedicated logic registers      ; 2,874                                       ;
+; Total registers                    ; 2874                                        ;
 ; Total pins                         ; 132                                         ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 8,192                                       ;
+; Total memory bits                  ; 6,144                                       ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
@@ -186,59 +185,62 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-12        ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                              ;
-+----------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                   ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                               ; Library ;
-+----------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
-; writeback.sv                                       ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/writeback.sv                                       ;         ;
-; sl2.sv                                             ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/sl2.sv                                             ;         ;
-; signext.sv                                         ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/signext.sv                                         ;         ;
-; regfile.sv                                         ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/regfile.sv                                         ;         ;
-; processor_arm.sv                                   ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/processor_arm.sv                                   ;         ;
-; mux2.sv                                            ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/mux2.sv                                            ;         ;
-; memory.sv                                          ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/memory.sv                                          ;         ;
-; maindec.sv                                         ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/maindec.sv                                         ;         ;
-; imem.sv                                            ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/imem.sv                                            ;         ;
-; flopr.sv                                           ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/flopr.sv                                           ;         ;
-; fetch.sv                                           ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/fetch.sv                                           ;         ;
-; execute.sv                                         ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/execute.sv                                         ;         ;
-; dmem.vhd                                           ; yes             ; User VHDL File                                        ; /home-local/visitante/ArqComputadoras/PipelineProcessor/dmem.vhd                                           ;         ;
-; decode.sv                                          ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/decode.sv                                          ;         ;
-; datapath.sv                                        ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv                                        ;         ;
-; controller.sv                                      ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/controller.sv                                      ;         ;
-; aludec.sv                                          ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/aludec.sv                                          ;         ;
-; alu.sv                                             ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/alu.sv                                             ;         ;
-; adder.sv                                           ; yes             ; User SystemVerilog HDL File                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/adder.sv                                           ;         ;
-; altsyncram.tdf                                     ; yes             ; Megafunction                                          ; /opt/quartus/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                            ;         ;
-; stratix_ram_block.inc                              ; yes             ; Megafunction                                          ; /opt/quartus/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                     ;         ;
-; lpm_mux.inc                                        ; yes             ; Megafunction                                          ; /opt/quartus/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                               ;         ;
-; lpm_decode.inc                                     ; yes             ; Megafunction                                          ; /opt/quartus/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                            ;         ;
-; aglobal201.inc                                     ; yes             ; Megafunction                                          ; /opt/quartus/intelFPGA_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                            ;         ;
-; a_rdenreg.inc                                      ; yes             ; Megafunction                                          ; /opt/quartus/intelFPGA_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                             ;         ;
-; altrom.inc                                         ; yes             ; Megafunction                                          ; /opt/quartus/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                ;         ;
-; altram.inc                                         ; yes             ; Megafunction                                          ; /opt/quartus/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altram.inc                                ;         ;
-; altdpram.inc                                       ; yes             ; Megafunction                                          ; /opt/quartus/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                              ;         ;
-; db/altsyncram_2km1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/db/altsyncram_2km1.tdf                             ;         ;
-; db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home-local/visitante/ArqComputadoras/PipelineProcessor/db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif ;         ;
-; db/altsyncram_4tg1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home-local/visitante/ArqComputadoras/PipelineProcessor/db/altsyncram_4tg1.tdf                             ;         ;
-+----------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                               ;
++----------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                   ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                ; Library ;
++----------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+---------+
+; writeback.sv                                       ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/writeback.sv                                       ;         ;
+; sl2.sv                                             ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/sl2.sv                                             ;         ;
+; signext.sv                                         ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/signext.sv                                         ;         ;
+; regfile.sv                                         ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/regfile.sv                                         ;         ;
+; processor_arm.sv                                   ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/processor_arm.sv                                   ;         ;
+; mux2.sv                                            ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/mux2.sv                                            ;         ;
+; memory.sv                                          ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/memory.sv                                          ;         ;
+; maindec.sv                                         ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/maindec.sv                                         ;         ;
+; imem.sv                                            ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/imem.sv                                            ;         ;
+; flopr.sv                                           ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/flopr.sv                                           ;         ;
+; fetch.sv                                           ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/fetch.sv                                           ;         ;
+; execute.sv                                         ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/execute.sv                                         ;         ;
+; dmem.vhd                                           ; yes             ; User VHDL File                                        ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/dmem.vhd                                           ;         ;
+; decode.sv                                          ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/decode.sv                                          ;         ;
+; datapath.sv                                        ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv                                        ;         ;
+; controller.sv                                      ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/controller.sv                                      ;         ;
+; aludec.sv                                          ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/aludec.sv                                          ;         ;
+; alu.sv                                             ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/alu.sv                                             ;         ;
+; adder.sv                                           ; yes             ; User SystemVerilog HDL File                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/adder.sv                                           ;         ;
+; altsyncram.tdf                                     ; yes             ; Megafunction                                          ; /home/kevin/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                              ;         ;
+; stratix_ram_block.inc                              ; yes             ; Megafunction                                          ; /home/kevin/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                       ;         ;
+; lpm_mux.inc                                        ; yes             ; Megafunction                                          ; /home/kevin/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                 ;         ;
+; lpm_decode.inc                                     ; yes             ; Megafunction                                          ; /home/kevin/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                              ;         ;
+; aglobal201.inc                                     ; yes             ; Megafunction                                          ; /home/kevin/intelFPGA_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                              ;         ;
+; a_rdenreg.inc                                      ; yes             ; Megafunction                                          ; /home/kevin/intelFPGA_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                               ;         ;
+; altrom.inc                                         ; yes             ; Megafunction                                          ; /home/kevin/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                  ;         ;
+; altram.inc                                         ; yes             ; Megafunction                                          ; /home/kevin/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altram.inc                                  ;         ;
+; altdpram.inc                                       ; yes             ; Megafunction                                          ; /home/kevin/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                ;         ;
+; db/altsyncram_a4i1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/db/altsyncram_a4i1.tdf                             ;         ;
+; db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif ;         ;
+; db/altsyncram_4tg1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/db/altsyncram_4tg1.tdf                             ;         ;
++----------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -246,31 +248,31 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,148          ;
+; Estimated Total logic elements              ; 4,855          ;
 ;                                             ;                ;
-; Total combinational functions               ; 907            ;
+; Total combinational functions               ; 2440           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 508            ;
-;     -- 3 input functions                    ; 259            ;
-;     -- <=2 input functions                  ; 140            ;
+;     -- 4 input functions                    ; 1785           ;
+;     -- 3 input functions                    ; 563            ;
+;     -- <=2 input functions                  ; 92             ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 833            ;
+;     -- normal mode                          ; 2366           ;
 ;     -- arithmetic mode                      ; 74             ;
 ;                                             ;                ;
-; Total registers                             ; 496            ;
-;     -- Dedicated logic registers            ; 496            ;
+; Total registers                             ; 2874           ;
+;     -- Dedicated logic registers            ; 2874           ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 132            ;
-; Total memory bits                           ; 8192           ;
+; Total memory bits                           ; 6144           ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 688            ;
-; Total fan-out                               ; 7592           ;
-; Average fan-out                             ; 4.08           ;
+; Maximum fan-out                             ; 3002           ;
+; Total fan-out                               ; 19802          ;
+; Average fan-out                             ; 3.47           ;
 +---------------------------------------------+----------------+
 
 
@@ -279,26 +281,23 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Entity Name     ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |processor_arm                                  ; 907 (0)             ; 496 (0)                   ; 8192        ; 0            ; 0       ; 0         ; 132  ; 0            ; |processor_arm                                                                                                  ; processor_arm   ; work         ;
+; |processor_arm                                  ; 2440 (0)            ; 2874 (0)                  ; 6144        ; 0            ; 0       ; 0         ; 132  ; 0            ; |processor_arm                                                                                                  ; processor_arm   ; work         ;
 ;    |controller:c|                               ; 15 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|controller:c                                                                                     ; controller      ; work         ;
 ;       |aludec:decAlu|                           ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|controller:c|aludec:decAlu                                                                       ; aludec          ; work         ;
 ;       |maindec:decPpal|                         ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|controller:c|maindec:decPpal                                                                     ; maindec         ; work         ;
-;    |datapath:dp|                                ; 781 (0)             ; 344 (0)                   ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp                                                                                      ; datapath        ; work         ;
-;       |decode:DECODE|                           ; 152 (0)             ; 2 (0)                     ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE                                                                        ; decode          ; work         ;
+;    |datapath:dp|                                ; 2313 (0)            ; 2722 (0)                  ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp                                                                                      ; datapath        ; work         ;
+;       |decode:DECODE|                           ; 1570 (0)            ; 2252 (0)                  ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE                                                                        ; decode          ; work         ;
 ;          |mux2:ra2mux|                          ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|mux2:ra2mux                                                            ; mux2            ; work         ;
-;          |regfile:registers|                    ; 130 (130)           ; 2 (2)                     ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|regfile:registers                                                      ; regfile         ; work         ;
+;          |regfile:registers|                    ; 1548 (1548)         ; 2252 (2252)               ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|regfile:registers                                                      ; regfile         ; work         ;
 ;             |altsyncram:regs_rtl_0|             ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0                                ; altsyncram      ; work         ;
-;                |altsyncram_2km1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0|altsyncram_2km1:auto_generated ; altsyncram_2km1 ; work         ;
-;             |altsyncram:regs_rtl_1|             ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_1                                ; altsyncram      ; work         ;
-;                |altsyncram_2km1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_1|altsyncram_2km1:auto_generated ; altsyncram_2km1 ; work         ;
+;                |altsyncram_a4i1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0|altsyncram_a4i1:auto_generated ; altsyncram_a4i1 ; work         ;
 ;          |signext:ext|                          ; 17 (17)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|signext:ext                                                            ; signext         ; work         ;
-;       |execute:EXECUTE|                         ; 488 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE                                                                      ; execute         ; work         ;
-;          |alu:ALU|                              ; 472 (472)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|alu:ALU                                                              ; alu             ; work         ;
-;          |mux2:mux|                             ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|mux2:mux                                                             ; mux2            ; work         ;
+;       |execute:EXECUTE|                         ; 474 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE                                                                      ; execute         ; work         ;
+;          |alu:ALU|                              ; 474 (474)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|alu:ALU                                                              ; alu             ; work         ;
 ;       |fetch:FETCH|                             ; 6 (0)               ; 6 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|fetch:FETCH                                                                          ; fetch           ; work         ;
 ;          |flopr:PC|                             ; 6 (6)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|fetch:FETCH|flopr:PC                                                                 ; flopr           ; work         ;
 ;       |flopr:EX_MEM|                            ; 6 (6)               ; 144 (144)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|flopr:EX_MEM                                                                         ; flopr           ; work         ;
-;       |flopr:ID_EX|                             ; 0 (0)               ; 35 (35)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|flopr:ID_EX                                                                          ; flopr           ; work         ;
+;       |flopr:ID_EX|                             ; 128 (128)           ; 163 (163)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|flopr:ID_EX                                                                          ; flopr           ; work         ;
 ;       |flopr:IF_ID|                             ; 0 (0)               ; 22 (22)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|flopr:IF_ID                                                                          ; flopr           ; work         ;
 ;       |flopr:MEM_WB|                            ; 64 (64)             ; 135 (135)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|flopr:MEM_WB                                                                         ; flopr           ; work         ;
 ;       |memory:MEMORY|                           ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|memory:MEMORY                                                                        ; memory          ; work         ;
@@ -308,7 +307,7 @@ https://fpgasoftware.intel.com/eula.
 ;       |altsyncram:mem_rtl_0|                    ; 0 (0)               ; 0 (0)                     ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|dmem:dataMem|altsyncram:mem_rtl_0                                                                ; altsyncram      ; work         ;
 ;          |altsyncram_4tg1:auto_generated|       ; 0 (0)               ; 0 (0)                     ; 4096        ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|dmem:dataMem|altsyncram:mem_rtl_0|altsyncram_4tg1:auto_generated                                 ; altsyncram_4tg1 ; work         ;
 ;    |flopr:IF_ID_TOP|                            ; 0 (0)               ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|flopr:IF_ID_TOP                                                                                  ; flopr           ; work         ;
-;    |imem:instrMem|                              ; 105 (105)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|imem:instrMem                                                                                    ; imem            ; work         ;
+;    |imem:instrMem|                              ; 106 (106)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|imem:instrMem                                                                                    ; imem            ; work         ;
 +-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -318,8 +317,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------------------------------------------------+
 ; Name                                                                                                        ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                                ;
 +-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------------------------------------------------+
-; datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0|altsyncram_2km1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 64           ; 32           ; 64           ; 2048 ; db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif ;
-; datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_1|altsyncram_2km1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 64           ; 32           ; 64           ; 2048 ; db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif ;
+; datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0|altsyncram_a4i1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 64           ; 32           ; 64           ; 2048 ; db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif ;
 ; dmem:dataMem|altsyncram:mem_rtl_0|altsyncram_4tg1:auto_generated|ALTSYNCRAM                                 ; AUTO ; Simple Dual Port ; 64           ; 64           ; 64           ; 64           ; 4096 ; None                                               ;
 +-------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------------------------------------------------+
 
@@ -432,133 +430,334 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 496   ;
+; Total registers                              ; 2874  ;
 ; Number of registers using Synchronous Clear  ; 65    ;
-; Number of registers using Synchronous Load   ; 70    ;
-; Number of registers using Asynchronous Clear ; 361   ;
+; Number of registers using Synchronous Load   ; 198   ;
+; Number of registers using Asynchronous Clear ; 493   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 64    ;
+; Number of registers using Clock Enable       ; 2176  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions                                                       ;
-+------------------------------------+--------------------------------------------------------+------+
-; Register Name                      ; Megafunction                                           ; Type ;
-+------------------------------------+--------------------------------------------------------+------+
-; datapath:dp|flopr:ID_EX|q[69..132] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ; RAM  ;
-; datapath:dp|flopr:ID_EX|q[5..68]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_1 ; RAM  ;
-; dmem:dataMem|mem[0..63][0..63]     ; dmem:dataMem|mem_rtl_0                                 ; RAM  ;
-+------------------------------------+--------------------------------------------------------+------+
++------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                 ;
++--------------------------------------------------------------------+---------+
+; Inverted Register                                                  ; Fan out ;
++--------------------------------------------------------------------+---------+
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[12]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[14]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[16]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[18]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[20]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[22]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[24]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[26]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[28]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[30]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[32]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[34]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[36]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[38]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[40]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[42]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[44]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[46]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[48]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[50]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[52]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[54]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[56]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[58]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[60]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[62]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[64]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[66]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[68]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[70]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[72]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[74]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[76]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[78]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[80]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[82]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[84]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[86]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[88]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[90]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[92]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[94]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[96]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[98]  ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[100] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[102] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[104] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[106] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[108] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[110] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[112] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[114] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[116] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[118] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[120] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[122] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[124] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[126] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[128] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[130] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[132] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[134] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[136] ; 1       ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[138] ; 1       ;
+; Total number of inverted registers = 64                            ;         ;
++--------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------+
-; Registers Added for RAM Pass-Through Logic                 ;
-+-----------------------------------+------------------------+
-; Register Name                     ; RAM Name               ;
-+-----------------------------------+------------------------+
-; dmem:dataMem|mem_rtl_0_bypass[0]  ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[1]  ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[2]  ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[3]  ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[4]  ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[5]  ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[6]  ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[7]  ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[8]  ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[9]  ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[10] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[11] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[12] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[13] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[14] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[15] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[16] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[17] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[18] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[19] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[20] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[21] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[22] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[23] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[24] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[25] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[26] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[27] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[28] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[29] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[30] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[31] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[32] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[33] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[34] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[35] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[36] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[37] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[38] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[39] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[40] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[41] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[42] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[43] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[44] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[45] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[46] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[47] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[48] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[49] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[50] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[51] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[52] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[53] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[54] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[55] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[56] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[57] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[58] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[59] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[60] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[61] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[62] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[63] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[64] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[65] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[66] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[67] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[68] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[69] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[70] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[71] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[72] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[73] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[74] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[75] ; dmem:dataMem|mem_rtl_0 ;
-; dmem:dataMem|mem_rtl_0_bypass[76] ; dmem:dataMem|mem_rtl_0 ;
-+-----------------------------------+------------------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                                                                  ;
++--------------------------------------------------------------------+--------------------------------------------------------+
+; Register Name                                                      ; RAM Name                                               ;
++--------------------------------------------------------------------+--------------------------------------------------------+
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[0]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[1]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[2]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[3]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[4]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[5]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[6]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[7]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[8]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[9]   ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[10]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[11]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[12]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[13]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[14]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[15]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[16]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[17]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[18]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[19]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[20]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[21]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[22]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[23]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[24]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[25]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[26]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[27]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[28]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[29]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[30]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[31]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[32]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[33]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[34]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[35]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[36]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[37]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[38]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[39]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[40]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[41]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[42]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[43]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[44]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[45]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[46]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[47]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[48]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[49]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[50]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[51]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[52]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[53]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[54]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[55]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[56]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[57]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[58]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[59]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[60]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[61]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[62]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[63]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[64]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[65]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[66]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[67]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[68]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[69]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[70]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[71]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[72]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[73]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[74]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[75]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[76]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[77]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[78]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[79]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[80]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[81]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[82]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[83]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[84]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[85]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[86]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[87]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[88]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[89]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[90]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[91]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[92]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[93]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[94]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[95]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[96]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[97]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[98]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[99]  ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[100] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[101] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[102] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[103] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[104] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[105] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[106] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[107] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[108] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[109] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[110] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[111] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[112] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[113] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[114] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[115] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[116] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[117] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[118] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[119] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[120] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[121] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[122] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[123] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[124] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[125] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[126] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[127] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[128] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[129] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[130] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[131] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[132] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[133] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[134] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[135] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[136] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[137] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0_bypass[138] ; datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0 ;
+; dmem:dataMem|mem_rtl_0_bypass[0]                                   ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[1]                                   ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[2]                                   ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[3]                                   ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[4]                                   ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[5]                                   ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[6]                                   ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[7]                                   ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[8]                                   ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[9]                                   ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[10]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[11]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[12]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[13]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[14]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[15]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[16]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[17]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[18]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[19]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[20]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[21]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[22]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[23]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[24]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[25]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[26]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[27]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[28]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[29]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[30]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[31]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[32]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[33]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[34]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[35]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[36]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[37]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[38]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[39]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[40]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[41]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[42]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[43]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[44]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[45]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[46]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[47]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[48]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[49]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[50]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[51]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[52]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[53]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[54]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[55]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[56]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[57]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[58]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[59]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[60]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[61]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[62]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[63]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[64]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[65]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[66]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[67]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[68]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[69]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[70]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[71]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[72]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[73]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[74]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[75]                                  ; dmem:dataMem|mem_rtl_0                                 ;
+; dmem:dataMem|mem_rtl_0_bypass[76]                                  ; dmem:dataMem|mem_rtl_0                                 ;
++--------------------------------------------------------------------+--------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 4:1                ; 64 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |processor_arm|datapath:dp|flopr:MEM_WB|q[66]            ;
-; 8:1                ; 64 bits   ; 320 LEs       ; 256 LEs              ; 64 LEs                 ; No         ; |processor_arm|datapath:dp|execute:EXECUTE|alu:ALU|Mux16 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
++----------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                   ;
++--------------------------------+------------------------+------+
+; Register Name                  ; Megafunction           ; Type ;
++--------------------------------+------------------------+------+
+; dmem:dataMem|mem[0..63][0..63] ; dmem:dataMem|mem_rtl_0 ; RAM  ;
++--------------------------------+------------------------+------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
+; 4:1                ; 64 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; Yes        ; |processor_arm|datapath:dp|flopr:MEM_WB|q[45]           ;
+; 8:1                ; 64 bits   ; 320 LEs       ; 256 LEs              ; 64 LEs                 ; No         ; |processor_arm|datapath:dp|execute:EXECUTE|alu:ALU|Mux0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0|altsyncram_2km1:auto_generated ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                        ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                         ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_1|altsyncram_2km1:auto_generated ;
+; Source assignments for datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0|altsyncram_a4i1:auto_generated ;
 +---------------------------------+--------------------+------+-----------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                        ;
 +---------------------------------+--------------------+------+-----------------------------------------------------------+
@@ -805,7 +1004,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; WIDTH_BYTEENA_B                    ; 1                                                  ; Untyped                  ;
 ; RAM_BLOCK_TYPE                     ; AUTO                                               ; Untyped                  ;
 ; BYTE_SIZE                          ; 8                                                  ; Untyped                  ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                           ; Untyped                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                          ; Untyped                  ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                               ; Untyped                  ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                               ; Untyped                  ;
 ; INIT_FILE                          ; db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif ; Untyped                  ;
@@ -821,68 +1020,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                              ; Untyped                  ;
 ; WIDTH_ECCSTATUS                    ; 3                                                  ; Untyped                  ;
 ; DEVICE_FAMILY                      ; Cyclone IV E                                       ; Untyped                  ;
-; CBXI_PARAMETER                     ; altsyncram_2km1                                    ; Untyped                  ;
-+------------------------------------+----------------------------------------------------+--------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_1 ;
-+------------------------------------+----------------------------------------------------+--------------------------+
-; Parameter Name                     ; Value                                              ; Type                     ;
-+------------------------------------+----------------------------------------------------+--------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                                                  ; Untyped                  ;
-; AUTO_CARRY_CHAINS                  ; ON                                                 ; AUTO_CARRY               ;
-; IGNORE_CARRY_BUFFERS               ; OFF                                                ; IGNORE_CARRY             ;
-; AUTO_CASCADE_CHAINS                ; ON                                                 ; AUTO_CASCADE             ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                                                ; IGNORE_CASCADE           ;
-; WIDTH_BYTEENA                      ; 1                                                  ; Untyped                  ;
-; OPERATION_MODE                     ; DUAL_PORT                                          ; Untyped                  ;
-; WIDTH_A                            ; 64                                                 ; Untyped                  ;
-; WIDTHAD_A                          ; 5                                                  ; Untyped                  ;
-; NUMWORDS_A                         ; 32                                                 ; Untyped                  ;
-; OUTDATA_REG_A                      ; UNREGISTERED                                       ; Untyped                  ;
-; ADDRESS_ACLR_A                     ; NONE                                               ; Untyped                  ;
-; OUTDATA_ACLR_A                     ; NONE                                               ; Untyped                  ;
-; WRCONTROL_ACLR_A                   ; NONE                                               ; Untyped                  ;
-; INDATA_ACLR_A                      ; NONE                                               ; Untyped                  ;
-; BYTEENA_ACLR_A                     ; NONE                                               ; Untyped                  ;
-; WIDTH_B                            ; 64                                                 ; Untyped                  ;
-; WIDTHAD_B                          ; 5                                                  ; Untyped                  ;
-; NUMWORDS_B                         ; 32                                                 ; Untyped                  ;
-; INDATA_REG_B                       ; CLOCK1                                             ; Untyped                  ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                             ; Untyped                  ;
-; RDCONTROL_REG_B                    ; CLOCK1                                             ; Untyped                  ;
-; ADDRESS_REG_B                      ; CLOCK0                                             ; Untyped                  ;
-; OUTDATA_REG_B                      ; UNREGISTERED                                       ; Untyped                  ;
-; BYTEENA_REG_B                      ; CLOCK1                                             ; Untyped                  ;
-; INDATA_ACLR_B                      ; NONE                                               ; Untyped                  ;
-; WRCONTROL_ACLR_B                   ; NONE                                               ; Untyped                  ;
-; ADDRESS_ACLR_B                     ; NONE                                               ; Untyped                  ;
-; OUTDATA_ACLR_B                     ; NONE                                               ; Untyped                  ;
-; RDCONTROL_ACLR_B                   ; NONE                                               ; Untyped                  ;
-; BYTEENA_ACLR_B                     ; NONE                                               ; Untyped                  ;
-; WIDTH_BYTEENA_A                    ; 1                                                  ; Untyped                  ;
-; WIDTH_BYTEENA_B                    ; 1                                                  ; Untyped                  ;
-; RAM_BLOCK_TYPE                     ; AUTO                                               ; Untyped                  ;
-; BYTE_SIZE                          ; 8                                                  ; Untyped                  ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                           ; Untyped                  ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                               ; Untyped                  ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                               ; Untyped                  ;
-; INIT_FILE                          ; db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif ; Untyped                  ;
-; INIT_FILE_LAYOUT                   ; PORT_A                                             ; Untyped                  ;
-; MAXIMUM_DEPTH                      ; 0                                                  ; Untyped                  ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL                                             ; Untyped                  ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL                                             ; Untyped                  ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                             ; Untyped                  ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                             ; Untyped                  ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                    ; Untyped                  ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                    ; Untyped                  ;
-; ENABLE_ECC                         ; FALSE                                              ; Untyped                  ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                              ; Untyped                  ;
-; WIDTH_ECCSTATUS                    ; 3                                                  ; Untyped                  ;
-; DEVICE_FAMILY                      ; Cyclone IV E                                       ; Untyped                  ;
-; CBXI_PARAMETER                     ; altsyncram_2km1                                    ; Untyped                  ;
+; CBXI_PARAMETER                     ; altsyncram_a4i1                                    ; Untyped                  ;
 +------------------------------------+----------------------------------------------------+--------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -953,7 +1091,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+-------------------------------------------------------------------+
 ; Name                                      ; Value                                                             ;
 +-------------------------------------------+-------------------------------------------------------------------+
-; Number of entity instances                ; 3                                                                 ;
+; Number of entity instances                ; 2                                                                 ;
 ; Entity Instance                           ; datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_0 ;
 ;     -- OPERATION_MODE                     ; DUAL_PORT                                                         ;
 ;     -- WIDTH_A                            ; 64                                                                ;
@@ -964,18 +1102,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- ADDRESS_REG_B                      ; CLOCK0                                                            ;
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                      ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                              ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                          ;
-; Entity Instance                           ; datapath:dp|decode:DECODE|regfile:registers|altsyncram:regs_rtl_1 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                                         ;
-;     -- WIDTH_A                            ; 64                                                                ;
-;     -- NUMWORDS_A                         ; 32                                                                ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                      ;
-;     -- WIDTH_B                            ; 64                                                                ;
-;     -- NUMWORDS_B                         ; 32                                                                ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                                            ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                      ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                              ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                          ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                         ;
 ; Entity Instance                           ; dmem:dataMem|altsyncram:mem_rtl_0                                 ;
 ;     -- OPERATION_MODE                     ; DUAL_PORT                                                         ;
 ;     -- WIDTH_A                            ; 64                                                                ;
@@ -1017,26 +1144,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 132                         ;
-; cycloneiii_ff         ; 496                         ;
-;     CLR               ; 290                         ;
+; cycloneiii_ff         ; 2874                        ;
+;     CLR               ; 294                         ;
 ;     CLR SCLR          ; 1                           ;
 ;     CLR SCLR SLD      ; 64                          ;
-;     CLR SLD           ; 6                           ;
-;     ENA               ; 64                          ;
-;     plain             ; 71                          ;
-; cycloneiii_lcell_comb ; 907                         ;
+;     CLR SLD           ; 134                         ;
+;     ENA               ; 2176                        ;
+;     plain             ; 205                         ;
+; cycloneiii_lcell_comb ; 2440                        ;
 ;     arith             ; 74                          ;
 ;         2 data inputs ; 6                           ;
 ;         3 data inputs ; 68                          ;
-;     normal            ; 833                         ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 133                         ;
-;         3 data inputs ; 191                         ;
-;         4 data inputs ; 508                         ;
-; cycloneiii_ram_block  ; 192                         ;
+;     normal            ; 2366                        ;
+;         1 data inputs ; 76                          ;
+;         2 data inputs ; 10                          ;
+;         3 data inputs ; 495                         ;
+;         4 data inputs ; 1785                        ;
+; cycloneiii_ram_block  ; 128                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 18.50                       ;
-; Average LUT depth     ; 7.38                        ;
+; Max LUT depth         ; 16.70                       ;
+; Average LUT depth     ; 5.32                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1045,7 +1172,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -1055,97 +1182,100 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Sep 29 11:39:57 2023
+    Info: Processing started: Sun Oct  1 18:58:14 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PipelineProcessor -c PipelineProcessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file writeback.sv
-    Info (12023): Found entity 1: writeback File: /home-local/visitante/ArqComputadoras/PipelineProcessor/writeback.sv Line: 3
+    Info (12023): Found entity 1: writeback File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/writeback.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file sl2.sv
-    Info (12023): Found entity 1: sl2 File: /home-local/visitante/ArqComputadoras/PipelineProcessor/sl2.sv Line: 3
+    Info (12023): Found entity 1: sl2 File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/sl2.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file signext_tb.sv
-    Info (12023): Found entity 1: signext_tb File: /home-local/visitante/ArqComputadoras/PipelineProcessor/signext_tb.sv Line: 1
+    Info (12023): Found entity 1: signext_tb File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/signext_tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file signext.sv
-    Info (12023): Found entity 1: signext File: /home-local/visitante/ArqComputadoras/PipelineProcessor/signext.sv Line: 1
+    Info (12023): Found entity 1: signext File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/signext.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file regfile_tb.sv
-    Info (12023): Found entity 1: regfile_tb File: /home-local/visitante/ArqComputadoras/PipelineProcessor/regfile_tb.sv Line: 1
+    Info (12023): Found entity 1: regfile_tb File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/regfile_tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file regfile.sv
-    Info (12023): Found entity 1: regfile File: /home-local/visitante/ArqComputadoras/PipelineProcessor/regfile.sv Line: 1
+    Info (12023): Found entity 1: regfile File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/regfile.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file processor_tb.sv
-    Info (12023): Found entity 1: processor_tb File: /home-local/visitante/ArqComputadoras/PipelineProcessor/processor_tb.sv Line: 4
+    Info (12023): Found entity 1: processor_tb File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/processor_tb.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file processor_arm.sv
-    Info (12023): Found entity 1: processor_arm File: /home-local/visitante/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 3
+    Info (12023): Found entity 1: processor_arm File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file mux2.sv
-    Info (12023): Found entity 1: mux2 File: /home-local/visitante/ArqComputadoras/PipelineProcessor/mux2.sv Line: 3
+    Info (12023): Found entity 1: mux2 File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/mux2.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file memory.sv
-    Info (12023): Found entity 1: memory File: /home-local/visitante/ArqComputadoras/PipelineProcessor/memory.sv Line: 3
+    Info (12023): Found entity 1: memory File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/memory.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file maindec_tb.sv
-    Info (12023): Found entity 1: maindec_tb File: /home-local/visitante/ArqComputadoras/PipelineProcessor/maindec_tb.sv Line: 1
+    Info (12023): Found entity 1: maindec_tb File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/maindec_tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file maindec.sv
-    Info (12023): Found entity 1: maindec File: /home-local/visitante/ArqComputadoras/PipelineProcessor/maindec.sv Line: 1
+    Info (12023): Found entity 1: maindec File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/maindec.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file imem_tb.sv
-    Info (12023): Found entity 1: imem_tb File: /home-local/visitante/ArqComputadoras/PipelineProcessor/imem_tb.sv Line: 1
+    Info (12023): Found entity 1: imem_tb File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/imem_tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file imem.sv
-    Info (12023): Found entity 1: imem File: /home-local/visitante/ArqComputadoras/PipelineProcessor/imem.sv Line: 1
+    Info (12023): Found entity 1: imem File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/imem.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file flopr_tb.sv
-    Info (12023): Found entity 1: flopr_tb File: /home-local/visitante/ArqComputadoras/PipelineProcessor/flopr_tb.sv Line: 1
+    Info (12023): Found entity 1: flopr_tb File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/flopr_tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file flopr.sv
-    Info (12023): Found entity 1: flopr File: /home-local/visitante/ArqComputadoras/PipelineProcessor/flopr.sv Line: 1
+    Info (12023): Found entity 1: flopr File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/flopr.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file fetch_tb.sv
-    Info (12023): Found entity 1: fetch_tb File: /home-local/visitante/ArqComputadoras/PipelineProcessor/fetch_tb.sv Line: 1
+    Info (12023): Found entity 1: fetch_tb File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/fetch_tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file fetch.sv
-    Info (12023): Found entity 1: fetch File: /home-local/visitante/ArqComputadoras/PipelineProcessor/fetch.sv Line: 1
+    Info (12023): Found entity 1: fetch File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/fetch.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file execute_tb.sv
-    Info (12023): Found entity 1: execute_tb File: /home-local/visitante/ArqComputadoras/PipelineProcessor/execute_tb.sv Line: 1
+    Info (12023): Found entity 1: execute_tb File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/execute_tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file execute.sv
-    Info (12023): Found entity 1: execute File: /home-local/visitante/ArqComputadoras/PipelineProcessor/execute.sv Line: 1
+    Info (12023): Found entity 1: execute File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/execute.sv Line: 1
 Info (12021): Found 2 design units, including 1 entities, in source file dmem.vhd
-    Info (12022): Found design unit 1: dmem-behave File: /home-local/visitante/ArqComputadoras/PipelineProcessor/dmem.vhd Line: 21
-    Info (12023): Found entity 1: dmem File: /home-local/visitante/ArqComputadoras/PipelineProcessor/dmem.vhd Line: 12
+    Info (12022): Found design unit 1: dmem-behave File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/dmem.vhd Line: 21
+    Info (12023): Found entity 1: dmem File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/dmem.vhd Line: 12
 Info (12021): Found 1 design units, including 1 entities, in source file decode.sv
-    Info (12023): Found entity 1: decode File: /home-local/visitante/ArqComputadoras/PipelineProcessor/decode.sv Line: 3
+    Info (12023): Found entity 1: decode File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/decode.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file datapath.sv
-    Info (12023): Found entity 1: datapath File: /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv Line: 3
+    Info (12023): Found entity 1: datapath File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file controller.sv
-    Info (12023): Found entity 1: controller File: /home-local/visitante/ArqComputadoras/PipelineProcessor/controller.sv Line: 3
+    Info (12023): Found entity 1: controller File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/controller.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file aludec.sv
-    Info (12023): Found entity 1: aludec File: /home-local/visitante/ArqComputadoras/PipelineProcessor/aludec.sv Line: 3
+    Info (12023): Found entity 1: aludec File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/aludec.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file alu_tb.sv
-    Info (12023): Found entity 1: alu_tb File: /home-local/visitante/ArqComputadoras/PipelineProcessor/alu_tb.sv Line: 1
+    Info (12023): Found entity 1: alu_tb File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/alu_tb.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
-    Info (12023): Found entity 1: alu File: /home-local/visitante/ArqComputadoras/PipelineProcessor/alu.sv Line: 1
+    Info (12023): Found entity 1: alu File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/alu.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file adder.sv
-    Info (12023): Found entity 1: adder File: /home-local/visitante/ArqComputadoras/PipelineProcessor/adder.sv Line: 3
+    Info (12023): Found entity 1: adder File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/adder.sv Line: 3
 Info (12127): Elaborating entity "processor_arm" for the top level hierarchy
-Info (12128): Elaborating entity "controller" for hierarchy "controller:c" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 24
-Info (12128): Elaborating entity "maindec" for hierarchy "controller:c|maindec:decPpal" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/controller.sv Line: 18
-Info (12128): Elaborating entity "aludec" for hierarchy "controller:c|aludec:decAlu" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/controller.sv Line: 23
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:dp" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 43
-Info (12128): Elaborating entity "fetch" for hierarchy "datapath:dp|fetch:FETCH" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv Line: 31
-Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|fetch:FETCH|mux2:mux" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/fetch.sv Line: 5
-Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|fetch:FETCH|flopr:PC" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/fetch.sv Line: 6
-Info (12128): Elaborating entity "adder" for hierarchy "datapath:dp|fetch:FETCH|adder:add" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/fetch.sv Line: 7
-Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|flopr:IF_ID" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv Line: 37
-Info (12128): Elaborating entity "decode" for hierarchy "datapath:dp|decode:DECODE" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv Line: 48
-Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|decode:DECODE|mux2:ra2mux" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/decode.sv Line: 12
-Info (12128): Elaborating entity "regfile" for hierarchy "datapath:dp|decode:DECODE|regfile:registers" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/decode.sv Line: 15
-Info (12128): Elaborating entity "signext" for hierarchy "datapath:dp|decode:DECODE|signext:ext" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/decode.sv Line: 22
-Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|flopr:ID_EX" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv Line: 55
-Info (12128): Elaborating entity "execute" for hierarchy "datapath:dp|execute:EXECUTE" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv Line: 67
-Info (12128): Elaborating entity "sl2" for hierarchy "datapath:dp|execute:EXECUTE|sl2:shift" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/execute.sv Line: 8
-Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|execute:EXECUTE|mux2:mux" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/execute.sv Line: 9
-Info (12128): Elaborating entity "adder" for hierarchy "datapath:dp|execute:EXECUTE|adder:add" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/execute.sv Line: 10
-Info (12128): Elaborating entity "alu" for hierarchy "datapath:dp|execute:EXECUTE|alu:ALU" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/execute.sv Line: 11
-Warning (10762): Verilog HDL Case Statement warning at alu.sv(15): can't check case statement for completeness because the case expression has too many possible states File: /home-local/visitante/ArqComputadoras/PipelineProcessor/alu.sv Line: 15
-Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|flopr:EX_MEM" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv Line: 73
-Info (12128): Elaborating entity "memory" for hierarchy "datapath:dp|memory:MEMORY" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv Line: 78
-Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|flopr:MEM_WB" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv Line: 92
-Info (12128): Elaborating entity "writeback" for hierarchy "datapath:dp|writeback:WRITEBACK" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/datapath.sv Line: 98
-Info (12128): Elaborating entity "imem" for hierarchy "imem:instrMem" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 47
-Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dataMem" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 56
-Info (12128): Elaborating entity "flopr" for hierarchy "flopr:IF_ID_TOP" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 62
+Info (12128): Elaborating entity "controller" for hierarchy "controller:c" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 24
+Info (12128): Elaborating entity "maindec" for hierarchy "controller:c|maindec:decPpal" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/controller.sv Line: 18
+Info (12128): Elaborating entity "aludec" for hierarchy "controller:c|aludec:decAlu" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/controller.sv Line: 23
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:dp" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 43
+Info (12128): Elaborating entity "fetch" for hierarchy "datapath:dp|fetch:FETCH" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv Line: 31
+Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|fetch:FETCH|mux2:mux" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/fetch.sv Line: 5
+Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|fetch:FETCH|flopr:PC" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/fetch.sv Line: 6
+Info (12128): Elaborating entity "adder" for hierarchy "datapath:dp|fetch:FETCH|adder:add" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/fetch.sv Line: 7
+Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|flopr:IF_ID" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv Line: 37
+Info (12128): Elaborating entity "decode" for hierarchy "datapath:dp|decode:DECODE" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv Line: 48
+Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|decode:DECODE|mux2:ra2mux" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/decode.sv Line: 12
+Info (12128): Elaborating entity "regfile" for hierarchy "datapath:dp|decode:DECODE|regfile:registers" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/decode.sv Line: 15
+Info (12128): Elaborating entity "signext" for hierarchy "datapath:dp|decode:DECODE|signext:ext" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/decode.sv Line: 22
+Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|flopr:ID_EX" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv Line: 55
+Info (12128): Elaborating entity "execute" for hierarchy "datapath:dp|execute:EXECUTE" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv Line: 67
+Info (12128): Elaborating entity "sl2" for hierarchy "datapath:dp|execute:EXECUTE|sl2:shift" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/execute.sv Line: 8
+Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|execute:EXECUTE|mux2:mux" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/execute.sv Line: 9
+Info (12128): Elaborating entity "adder" for hierarchy "datapath:dp|execute:EXECUTE|adder:add" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/execute.sv Line: 10
+Info (12128): Elaborating entity "alu" for hierarchy "datapath:dp|execute:EXECUTE|alu:ALU" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/execute.sv Line: 11
+Warning (10762): Verilog HDL Case Statement warning at alu.sv(15): can't check case statement for completeness because the case expression has too many possible states File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/alu.sv Line: 15
+Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|flopr:EX_MEM" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv Line: 73
+Info (12128): Elaborating entity "memory" for hierarchy "datapath:dp|memory:MEMORY" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv Line: 78
+Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|flopr:MEM_WB" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv Line: 92
+Info (12128): Elaborating entity "writeback" for hierarchy "datapath:dp|writeback:WRITEBACK" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/datapath.sv Line: 98
+Info (12128): Elaborating entity "imem" for hierarchy "imem:instrMem" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 47
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dataMem" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 56
+Info (12128): Elaborating entity "flopr" for hierarchy "flopr:IF_ID_TOP" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 62
+Warning (276020): Inferred RAM node "datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "dmem:dataMem|mem_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Info (19000): Inferred 3 megafunctions from design logic
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "datapath:dp|decode:DECODE|regfile:registers|regs" is uninferred due to asynchronous read logic File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/regfile.sv Line: 8
+Info (19000): Inferred 2 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "datapath:dp|decode:DECODE|regfile:registers|regs_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 64
@@ -1162,24 +1292,6 @@ Info (19000): Inferred 3 megafunctions from design logic
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
         Info (286033): Parameter INIT_FILE set to db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif
-        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "datapath:dp|decode:DECODE|regfile:registers|regs_rtl_1" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 64
-        Info (286033): Parameter WIDTHAD_A set to 5
-        Info (286033): Parameter NUMWORDS_A set to 32
-        Info (286033): Parameter WIDTH_B set to 64
-        Info (286033): Parameter WIDTHAD_B set to 5
-        Info (286033): Parameter NUMWORDS_B set to 32
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-        Info (286033): Parameter INIT_FILE set to db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif
-        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
     Info (276029): Inferred altsyncram megafunction from the following design logic: "dmem:dataMem|mem_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 64
@@ -1213,9 +1325,8 @@ Info (12133): Instantiated megafunction "datapath:dp|decode:DECODE|regfile:regis
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
     Info (12134): Parameter "INIT_FILE" = "db/PipelineProcessor.ram0_regfile_4c9f4da2.hdl.mif"
-    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_2km1.tdf
-    Info (12023): Found entity 1: altsyncram_2km1 File: /home-local/visitante/ArqComputadoras/PipelineProcessor/db/altsyncram_2km1.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_a4i1.tdf
+    Info (12023): Found entity 1: altsyncram_a4i1 File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/db/altsyncram_a4i1.tdf Line: 28
 Info (12130): Elaborated megafunction instantiation "dmem:dataMem|altsyncram:mem_rtl_0"
 Info (12133): Instantiated megafunction "dmem:dataMem|altsyncram:mem_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -1234,22 +1345,22 @@ Info (12133): Instantiated megafunction "dmem:dataMem|altsyncram:mem_rtl_0" with
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_4tg1.tdf
-    Info (12023): Found entity 1: altsyncram_4tg1 File: /home-local/visitante/ArqComputadoras/PipelineProcessor/db/altsyncram_4tg1.tdf Line: 28
+    Info (12023): Found entity 1: altsyncram_4tg1 File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/db/altsyncram_4tg1.tdf Line: 28
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 168 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "dump" File: /home-local/visitante/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 7
-Info (21057): Implemented 1604 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "dump" File: /home/kevin/MEGA/arqui/ArqComputadoras/PipelineProcessor/processor_arm.sv Line: 7
+Info (21057): Implemented 5252 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 129 output pins
-    Info (21061): Implemented 1280 logic cells
-    Info (21064): Implemented 192 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 464 megabytes
-    Info: Processing ended: Fri Sep 29 11:40:07 2023
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:16
+    Info (21061): Implemented 4992 logic cells
+    Info (21064): Implemented 128 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 505 megabytes
+    Info: Processing ended: Sun Oct  1 18:58:25 2023
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:18
 
 
