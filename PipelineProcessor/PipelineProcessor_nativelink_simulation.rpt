@@ -5,8 +5,8 @@ Info: NativeLink has detected a mixed Verilog and VHDL design -- systemverilog s
 
 Sim Mode              :  RTL
 Family                :  cycloneive
-Quartus root          :  /opt/quartus/intelFPGA_lite/20.1/quartus/linux64/
-Quartus sim root      :  /opt/quartus/intelFPGA_lite/20.1/quartus/eda/sim_lib
+Quartus root          :  /home/leandro/famaf/arquitectura/intelFPGA_lite/20.1/quartus/linux64/
+Quartus sim root      :  /home/leandro/famaf/arquitectura/intelFPGA_lite/20.1/quartus/eda/sim_lib
 Simulation Tool       :  modelsim-altera
 Simulation Language   :  systemverilog
 Simulation Mode       :  GUI
@@ -17,7 +17,7 @@ Sim dir               :  simulation/modelsim
 =======================================================
 
 Info: Starting NativeLink simulation with ModelSim-Altera software
-Sourced NativeLink script /opt/quartus/intelFPGA_lite/20.1/quartus/common/tcl/internal/nativelink/modelsim.tcl
-Warning: File PipelineProcessor_run_msim_rtl_systemverilog.do already exists - backing up current file as PipelineProcessor_run_msim_rtl_systemverilog.do.bak11
+Sourced NativeLink script /home/leandro/famaf/arquitectura/intelFPGA_lite/20.1/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File PipelineProcessor_run_msim_rtl_systemverilog.do already exists - backing up current file as PipelineProcessor_run_msim_rtl_systemverilog.do.bak5
 Info: Spawning ModelSim-Altera Simulation software 
 Info: NativeLink simulation flow was successful

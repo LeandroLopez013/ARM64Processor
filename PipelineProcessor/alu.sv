@@ -7,6 +7,7 @@ module alu(input logic [63:0] a,b,
 			4'b0000: result = a & b;
 			4'b0001: result = a | b;
 			4'b0010: result = a + b;
+			4'b0011: result = b[15:0]<<b[17:16]*16;
 			4'b0110: result = a-b;
 			4'b0111: result = b;
 			default: result = 64'b1;

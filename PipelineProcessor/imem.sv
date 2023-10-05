@@ -4,7 +4,7 @@ module imem #(parameter N=32)
 	always_comb begin
 		logic [N-1:0] ROM [0:127];
 		ROM [0:127] = '{default: '0};
-ROM [0:85] ='{32'hf8000001,
+ROM [0:89] ='{32'hf8000001,
 32'hf8008002,
 32'hf8000203,
 32'h8b050083,
@@ -89,6 +89,10 @@ ROM [0:85] ='{32'hf8000001,
 32'h8b1f03ff,
 32'h8b1f03ff,
 32'hf81f83d9,
+32'hd2e001e9,
+32'h8b1f03ff,
+32'h8b1f03ff,
+32'hf80a8009,
 32'hb400001f};
 
 		q = ROM[addr];
