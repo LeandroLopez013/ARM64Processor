@@ -7,7 +7,7 @@ simulation
 *.qtf
 *.log
 *.tmp
-*.pdf
+*.vhd
 
 # armv8 files
 main.elf
